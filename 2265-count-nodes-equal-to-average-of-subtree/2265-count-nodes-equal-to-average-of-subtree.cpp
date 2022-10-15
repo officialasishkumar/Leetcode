@@ -12,23 +12,17 @@
 class Solution {
     int ans = 0;
 public:
-    int sum(TreeNode* root, int &cnt){
-        if(!root) return 0;
-        cnt++;
-        int left = sum(root->left, cnt);
-        int right = sum(root->right, cnt);
-        return (left + right + root->val);
-    }
-    void solve(TreeNode* root){
-        if(!root) return;
-        int cnt = 0;
-        int avg = sum(root, cnt)/cnt;
-        if(avg == root->val) ans++;
-        solve(root->left);
-        solve(root->right);
+    pair<int, int> solve(TreeNode* root){
+        if(!root) return {0, 0}; // In case we hit a NULL node we have to return sum and size to be 0.
+        auto left = solve(root->left); // Returns the sum and size of the left subtree.
+        auto right = solve(root->right); // Returns the sum and size of the right subtree.
+        int sum = (left.first + right.first + root->val); // We add all the three values i.e. the sum of the left and right subtree and the value of the current node.
+        int n = (left.second + right.second + 1); // We calculate the size of the entire subtree including the parent node. 
+        if((sum/n) == root->val) ans++; // If the condition is passed we increment our ans variable. 
+        return {sum, n}; // At the end we return the sum and the size of the tree.
     }
     int averageOfSubtree(TreeNode* root) {
-        solve(root);
+        auto pr = solve(root);
         return ans;
     }
 };
