@@ -12,8 +12,7 @@
 
 <pre><strong>Input:</strong> nums1 = [4, 9, 5], nums2 = [9, 4, 9, 8, 4]
 <strong>Output:</strong> [9, 4]
-<strong>Explanation:</strong>
-[4, 9] is  also accepted.
+<strong>Explanation:</strong> [4, 9] is  also accepted.
 </pre>
 
 <p>&nbsp;</p>
