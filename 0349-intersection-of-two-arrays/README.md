@@ -5,7 +5,8 @@
 
 <pre><strong>Input:</strong> nums1 = [1, 2, 2, 1], nums2 = [2, 2]
 <strong>Output:</strong> [2]
-
+</pre>
+	
 <p>&nbsp;</p>
 <p><strong class="example">Example 2:</strong></p>
 
