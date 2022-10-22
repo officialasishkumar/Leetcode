@@ -2,17 +2,13 @@ class Solution {
 public:
     vector<vector<int>> groupThePeople(vector<int>& v) {
         vector<vector<int>> ans;
+        unordered_map<int, vector<int>> mpp;
         for(int i = 0; i<v.size(); i++){
-            if(v[i] == -1) continue;
-            int x = v[i];
-            vector<int> vec;
-            for(int j = i; j<v.size() && vec.size()<x; j++){
-                if(v[j]!=-1 and v[j] == x) {
-                    vec.push_back(j);
-                    v[j] = -1;
-                }
+            mpp[v[i]].push_back(i);
+            if(mpp[v[i]].size() == v[i]){
+                ans.push_back(mpp[v[i]]);
+                mpp[v[i]].clear();
             }
-            ans.push_back(vec);
         }
         return ans;
     }
