@@ -11,11 +11,13 @@ PRs Welcome Open Source Love contributions welcome Hacktoberfest-22
 
 2) Fork this repository. 
 
-Do the following steps back in my repository(only that will trigger a pull request) and not in your forked one
+Do the following steps back in your forked repo
 
-3) Add anything you want in the code so that you can create the good fronted view of the website.
+3) Download Leethub extension and connect it with the forked repo
 
-4) Send a Pull request
+4) Now solve a problem and create a PR accordingly 
+
+(Note: Don't send PR's containing solutions that are already available) 
 
 I'll take a look at change and then merge them with master branch.
 
