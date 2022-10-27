@@ -1,5 +1,5 @@
 <h2><a href="https://leetcode.com/problems/shortest-common-supersequence/">1092. Shortest Common Supersequence </a></h2><h3>Hard</h3><hr><div>
-<p>Given two strings <code>str1</code> and <code>str2</code>, return <em>the shortest string that has both <code>str1</code> and <code>str2</code> as <strong>subsequences</strong></em>. If there are multiple valid strings, return <strong>any<.strong> of them.
+<p>Given two strings <code>str1</code> and <code>str2</code>, return <em>the shortest string that has both <code>str1</code> and <code>str2</code> as <strong>subsequences</strong></em>. If there are multiple valid strings, return <strong>any</strong> of them.
 </p>
 
 <p>A string <code>s</code> is a <strong>subsequence</strong> of string <code>t</code> if deleting some number of characters from <code>t</code> (possibly <code>0</code>) results in the string <code>s</code>.</p>
