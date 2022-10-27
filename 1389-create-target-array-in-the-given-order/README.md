@@ -6,7 +6,7 @@
 <li>From left to right read nums[i] and index[i], insert at index <code>index[i]</code> the value <code>nums[i]</code> in target array.</li>
 <li>Repeat the previous step until there are no elements to read in <code>nums</code> and <code>index</code>.</li>
 <li>Return the <em>target</em> array.</li>
-
+	</ul>
 <p>It is guaranteed that the insertion operations will be valid.</p>
 
 <p>&nbsp;</p>
