@@ -1,13 +1,13 @@
 <h2><a href="https://leetcode.com/problems/create-target-array-in-the-given-order/description/">1389. Create Target Array in the Given Order</a></h2><h3>Easy</h3><hr><div>
 
-<p>Given two arrays of integers <code>num</code>  and <code>index</code> . Your task is to create target array under the following rules:
+<p>Given two arrays of integers <code>nums</code>  and <code>index</code> . Your task is to create target array under the following rules:<p>
 <ul>
 <li>Initially target array is empty.</li>
 <li>From left to right read nums[i] and index[i], insert at index <code>index[i]</code> the value <code>nums[i]</code> in target array.</li>
 <li>Repeat the previous step until there are no elements to read in <code>nums</code> and <code>index</code>.</li>
 <li>Return the <em>target<em> array.</li>
 
-It is guaranteed that the insertion operations will be valid.</p>
+<p>It is guaranteed that the insertion operations will be valid.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
