@@ -1,5 +1,5 @@
 
-# Hacktobestfest2022
+# Hacktobestfest-2022
 
 PRs Welcome Open Source Love contributions welcome Hacktoberfest-2022
 
