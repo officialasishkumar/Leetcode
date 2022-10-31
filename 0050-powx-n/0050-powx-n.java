@@ -7,7 +7,7 @@ class Solution {
     double pow(double x,long n){
         if(n==1) return x;
         double res = pow(x,n/2);
-        if(n%2==0) return res*res;
+        if(!(n%2)) return res*res;
         return res*res*x;
     }
 }
