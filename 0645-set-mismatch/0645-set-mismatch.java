@@ -4,9 +4,9 @@ class Solution {
         int xor = 0;
         Set<Integer> set = new HashSet<>();
         for(int i=0;i<nums.length;i++){
-            if(set.contains(nums[i])){
+            if(set.contains(nums[i]))
                 ans[0]= nums[i];
-            }else{
+            else{
                 set.add(nums[i]);
                 xor ^= nums[i];
             }
