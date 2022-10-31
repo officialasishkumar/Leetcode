@@ -18,10 +18,8 @@ class Solution {
         int[] ans = new int[answer.size()];
         int i = 0;
       
-        for(int ele: answer){
+        for(int ele: answer)
            ans[i++] = ele;
-        }
-
         return ans; 
     }
 }
