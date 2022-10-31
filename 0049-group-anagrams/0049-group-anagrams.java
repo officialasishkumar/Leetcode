@@ -14,7 +14,6 @@ class Solution {
                 ans.get(n).add(s);
                 map.put(a,n);
             }
-            
         }
         return ans;
     }
