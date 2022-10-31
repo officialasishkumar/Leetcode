@@ -1,7 +1,5 @@
 class Solution {
 public:
-    
-    
     int dfs(int n, int c, vector<vector<int>> adj, vector<int> vis, vector<int> rec){
      
         stack <int> s;
