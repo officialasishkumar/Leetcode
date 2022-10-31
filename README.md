@@ -23,6 +23,6 @@ I'll take a look at change and then merge them with master branch.
 
 Don't worry newcomers!! Everyone's PRs will be merged,just follow the steps properly!!
 
-🙌 Make this your first step to development and open source. Get the confidence you require!!
+ Make this your first step to development and open source. Get the confidence you require!!
 
 All of your suggestions are welcome!!
