@@ -9,9 +9,8 @@ public:
                 return mid;
             }
             if(nums[mid] >= nums[s]) {
-                if(target >= nums[s] && target <= nums[mid]) {
+                if(target >= nums[s] && target <= nums[mid])
                     e = mid - 1;
-                }
                 else {
                     s = mid + 1;
                 }
