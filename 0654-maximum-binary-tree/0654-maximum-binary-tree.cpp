@@ -12,27 +12,21 @@
 class Solution {
 public:
     TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
-        return construct(nums, 0, nums.size() -1);
-    }
-    
-    TreeNode* construct(vector<int> &nums, int s, int e){
-        if(s>e) return NULL;
-        int idx = findMax(nums,s,e);
-        
-        TreeNode* root = new TreeNode(nums[idx]);
-        root->left = construct(nums, s, idx-1);
-        root->right = construct(nums, idx+1, e);
-        return root;
-    }
-    
-    int findMax(vector<int> &nums, int s, int e){
-        int maxx = INT_MIN, idx = -1;
-        for(int i = s; i<=e; i++){  
-            if(nums[i]>maxx){
-                maxx = nums[i];
-                idx = i;
+        stack<TreeNode*> st;
+        for(auto num: nums){
+            TreeNode* node = new TreeNode(num);
+            while(st.size() && node->val>st.top()->val){
+                node->left = st.top();
+                st.pop();
             }
+            if(st.size()){
+                st.top()->right = node;
+            }
+            st.push(node);
         }
-        return idx;
+        while(st.size()>1){
+            st.pop();
+        }
+        return st.top();
     }
 };
