@@ -1,6 +1,8 @@
 class Solution {
 public:
     int findUnsortedSubarray(vector<int>& nums) {
+        // time complexity: O(n)
+        // Space complexity: O(n)
         vector<int> v = nums;
         sort(v.begin(), v.end());
         if(v==nums) return 0;
