@@ -6,25 +6,13 @@
 #         self.right = right
 class Solution:
     def trimBST(self, root: Optional[TreeNode], low: int, high: int) -> Optional[TreeNode]:
-        
-        def lowTrim(root, low):
-            if not root:
-                return
-            if root.val < low:
-                return lowTrim(root.right, low)
-            else:
-                root.left = lowTrim(root.left, low)
-                return root
-
-        def highTrim(root, high):
-            if not root:
-                return
-            if root.val > high:
-                return highTrim(root.left, high)
-            else:
-                root.right = highTrim(root.right, high)
-                return root
-        
-        root = lowTrim(root, low)
-        root = highTrim(root, high)
-        return root
+        if not root:
+            return root
+        if root.val < low:
+            return self.trimBST(root.right, low, high)
+        if root.val > high:
+            return self.trimBST(root.left, low, high)
+        else:
+            root.left = self.trimBST(root.left, low, high)
+            root.right = self.trimBST(root.right, low, high)
+            return root
