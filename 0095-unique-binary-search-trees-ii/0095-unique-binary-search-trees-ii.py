@@ -10,13 +10,13 @@ class Solution:
             return []
         nums = [x for x in range(1,n+1)]
 
-        def helper(nums):
-            if not nums:
+        def helper(start, end):
+            if start > end:
                 return [None]
             res = []
-            for i in range(len(nums)):
-                l = helper(nums[:i])
-                r = helper(nums[i+1:])
+            for i in range(start, end+1):
+                l = helper(start, i-1)
+                r = helper(i+1, end)
                 for left_tree in l:
                     for right_tree in r:
                         root = TreeNode(nums[i])
@@ -25,5 +25,5 @@ class Solution:
                         res.append(root)
             return res
 
-        return helper(nums)
+        return helper(0,n-1)
                 
