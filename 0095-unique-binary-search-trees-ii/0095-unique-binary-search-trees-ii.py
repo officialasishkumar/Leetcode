@@ -9,10 +9,13 @@ class Solution:
         if n < 1: 
             return []
         nums = [x for x in range(1,n+1)]
+        dp = [[-1 for x in range(n)] for y in range(n)]
 
         def helper(start, end):
             if start > end:
                 return [None]
+            if dp[start][end] != -1:
+                return dp[start][end]
             res = []
             for i in range(start, end+1):
                 l = helper(start, i-1)
@@ -23,6 +26,7 @@ class Solution:
                         root.left = left_tree
                         root.right = right_tree
                         res.append(root)
+            dp[start][end] = res
             return res
 
         return helper(0,n-1)
