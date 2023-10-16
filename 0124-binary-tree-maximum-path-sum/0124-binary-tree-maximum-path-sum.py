@@ -11,18 +11,13 @@ class Solution:
         def helper(root):
             if not root:
                 return 0
-            leftMax = helper(root.left)
-            rightMax = helper(root.right)
+            left = helper(root.left)
+            right = helper(root.right)
+            self.path = max(self.path, root.val + left + right)
+            returnVal = max(root.val, root.val + max(left, right))
+            self.path = max(self.path, returnVal)
+            return returnVal
 
-            temp = root.val
-            if leftMax > 0:
-                temp += leftMax
-            if rightMax > 0:
-                temp += rightMax
-            self.path = max(self.path, temp)
-
-            return max(root.val, root.val + max(leftMax, rightMax))
-        
         helper(root)
         return self.path
             
