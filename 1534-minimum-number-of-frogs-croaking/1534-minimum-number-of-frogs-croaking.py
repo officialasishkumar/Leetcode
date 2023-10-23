@@ -1,6 +1,6 @@
 class Solution:
     def minNumberOfFrogs(self, croakOfFrogs: str) -> int:
-        c, r, o, a, k = 0, 0, 0, 0, 0
+        c, r, o, a = 0, 0, 0, 0
         frogs = 0
         currFrogs = 0
         for char in croakOfFrogs:
@@ -26,10 +26,8 @@ class Solution:
             elif char == 'k':
                 if a == 0:
                     return -1
-                k += 1
                 a -= 1
                 currFrogs -= 1
-        print(c,r,o,a,k)
         if c+r+o+a == 0:
             return frogs
         return -1
