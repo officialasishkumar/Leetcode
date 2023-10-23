@@ -2,17 +2,8 @@ class Solution:
     def minCost(self, colors: str, neededTime: List[int]) -> int:
         time = 0
         n = len(colors)
-        prev = 0
-        next = 1
-        while next < n:
-            if colors[prev] == colors[next]:
-                print(prev,next)
-                if neededTime[prev] < neededTime[next]:
-                    time += neededTime[prev]
-                    prev = next
-                else:
-                    time += neededTime[next]
-            else:
-                prev = next
-            next += 1
+        for i in range(0,n-1):
+            if colors[i] == colors[i+1]:
+                time += min(neededTime[i], neededTime[i+1])
+                neededTime[i+1] = max(neededTime[i], neededTime[i+1])
         return time
