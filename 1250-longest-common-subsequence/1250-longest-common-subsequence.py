@@ -3,17 +3,15 @@ class Solution:
         n = len(text1)
         m = len(text2)
 
-        dp = [[-1 for i in range(m)] for j in range(n)]
+        row1 = [0 for i in range(m+1)]
+        row2 = [0 for i in range(m+1)]
 
-        def helper(i,j):
-            if i>=n or j>=m:
-                return 0
-            if dp[i][j] != -1:
-                return dp[i][j]
-            if text1[i] == text2[j]:
-                dp[i][j] = 1 + helper(i+1, j+1)
-            else:
-                dp[i][j] = max(helper(i+1,j), helper(i,j+1))
-            return dp[i][j]
+        for i in range(n-1, -1, -1):
+            for j in range(m-1, -1, -1):
+                if text1[i] == text2[j]:
+                    row1[j] = 1 + row2[j+1]
+                else:
+                    row1[j] = max(row2[j], row1[j+1])
+            row2 = row1[:]
         
-        return helper(0,0)
+        return row2[0]
