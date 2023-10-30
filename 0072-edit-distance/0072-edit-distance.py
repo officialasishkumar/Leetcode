@@ -1,15 +1,20 @@
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
-        n,m = len(word1), len(word2)
-        dp = [[-1 for j in range(m+1)] for i in range(n+1)]
-        for i in range(0,n+1):
-            dp[i][m] = n-i
-        for j in range(0,m+1):
-            dp[n][j] = m-j
-        for i in range(n-1,-1,-1):
-            for j in range(m-1,-1,-1):
-                if word1[i] == word2[j] :
-                    dp[i][j] = dp[i+1][j+1]
+
+        n = len(word1)
+        m = len(word2)
+
+        prev = [j for j in range(m + 1)]
+        cur = [0 for _ in range(m + 1)]
+
+        for i in range(1, n + 1):
+            cur[0] = i 
+            for j in range(1, m + 1):
+                if word1[i - 1] == word2[j - 1]:
+                    cur[j] = prev[j - 1]
                 else:
-                    dp[i][j] = 1 + min(min(dp[i+1][j], dp[i][j+1]), dp[i+1][j+1])
-        return dp[0][0]
+                    cur[j] = 1 + min(prev[j - 1], min(prev[j], cur[j - 1]))
+
+            prev, cur = cur, prev  
+
+        return prev[m] 
