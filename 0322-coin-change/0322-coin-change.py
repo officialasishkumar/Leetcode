@@ -2,19 +2,21 @@ class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         inf = 9999999
         n = len(coins)
-        dp = {}
+        dp = [-1 for i in range(amount+1)]
+        dp[0] = 0
 
-        def helper(i, curr):
-            if i >= n or curr > amount:
+        def helper(rem):
+            if rem < 0:
                 return inf
-            if curr == amount:
-                return 0
-            if (i,curr) in dp:
-                return dp[(i,curr)]
-            dp[(i,curr)] = min(1 + helper(i, curr + coins[i]), helper(i+1, curr))
-            return dp[(i,curr)]
+            if dp[rem] != -1:
+                return dp[rem]
+            val = inf
+            for coin in coins:
+                val = min(val, 1 + helper(rem - coin))
+            dp[rem] = val
+            return val
 
-        ans = helper(0,0)
+        ans = helper(amount)
         if ans == inf:
             return -1
         return ans
