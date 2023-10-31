@@ -9,16 +9,16 @@ class Solution:
             return False
         target = target // 2  
 
-        dp = {}
+        dp = [[False for i in range(target+1)] for j in range(n)]
 
-        def helper(i, rem):
-            if rem == 0:
-                return True
-            if rem < 0 or i >= n:
-                return False
-            if (i,rem) in dp:
-                return dp[(i,rem)]
-            dp[(i,rem)] = helper(i+1, rem-nums[i]) or helper(i+1, rem)
-            return dp[(i,rem)]
+        for i in range(n):
+            dp[i][0] = True
+
+        for i in range(1,n):
+            for rem in range(1,target+1):
+                if nums[i] <= rem:
+                    dp[i][rem] = dp[i-1][rem] or dp[i-1][rem-nums[i]]
+                else:
+                    dp[i][rem] = dp[i-1][rem]
         
-        return helper(0, target)
+        return dp[n-1][target]
