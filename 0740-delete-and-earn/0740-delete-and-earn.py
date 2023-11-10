@@ -19,7 +19,7 @@ class Solution:
             if arr[i+1] - arr[i] == 1:
                 dp[i] = max(dp[i+1], (arr[i]*count[arr[i]]) + dp[i+2])
             else:
-                dp[i] = max(dp[i+1], (arr[i]*count[arr[i]]) + dp[i+1])
+                dp[i] = arr[i]*count[arr[i]] + dp[i+1]
 
         return dp[0]
         
