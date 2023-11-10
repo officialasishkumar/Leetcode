@@ -11,18 +11,15 @@ class Solution:
         arr.sort()
         n = len(arr)
 
-        dp = [-1 for i in range(n)]
+        dp = [-1 for i in range(n+1)]
+        dp[n] = 0
+        dp[n-1] = arr[n-1] * count[arr[n-1]]
 
-        def helper(i):
-            if i >= n:
-                return 0
-            if dp[i] != -1:
-                return dp[i]
-            if i == n-1 or arr[i+1] - arr[i] == 1:
-                dp[i] = max(helper(i+1), (arr[i]*count[arr[i]]) + helper(i+2))
+        for i in range(n-2, -1, -1):
+            if arr[i+1] - arr[i] == 1:
+                dp[i] = max(dp[i+1], (arr[i]*count[arr[i]]) + dp[i+2])
             else:
-                dp[i] = max(helper(i+1), (arr[i]*count[arr[i]]) + helper(i+1))
-            return dp[i]
-        
-        return helper(0)
+                dp[i] = max(dp[i+1], (arr[i]*count[arr[i]]) + dp[i+1])
+
+        return dp[0]
         
