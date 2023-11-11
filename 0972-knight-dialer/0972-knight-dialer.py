@@ -14,20 +14,20 @@ class Solution:
             0:[6,4]
             }
 
-        dp = {}
+        dp = [[-1 for j in range(10)] for i in range(n)]
 
-        def helper(curr, moves):
-            if moves == 1:
-                return 1
-            if (curr,moves) in dp:
-                return dp[(curr,moves)]
-            ans = 0
-            for val in adj[curr]:
-                ans += helper(val, moves-1)
-            dp[(curr,moves)] = ans
-            return ans
+        for curr in range(10):
+            dp[0][curr] = 1
+
+        for moves in range(1,n):
+            for curr in range(10):
+                ans = 0
+                for k in adj[curr]:
+                    ans += dp[moves-1][k]
+                dp[moves][curr] = ans
         
-        result = 0
-        for start in range(0,10):
-            result += helper(start, n)
+        result = 0 
+        for curr in range(10):
+            result += dp[n-1][curr]
+
         return result % ((10**9) + 7)
